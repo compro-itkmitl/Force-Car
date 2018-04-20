@@ -8,9 +8,9 @@
 //to use blynk application we need auth tokens from application
 //and to connect with blynk on mobile we need ssid and password of wifi
 //to connect and control a car from moblie
-char auth[] = "343e76bc3b1642f79cf0732a095cb5e8"; //auth token from email to use blynk application
-char ssid[] = "..."; //ssid of wifi to connected to blynk application
-char pass[] = "meakmeak"; //password of wifi to connected to blynk application
+char auth[] = "343e76bc3b1642f79cf0732a095cb5e8"; //auth token from email
+char ssid[] = "..."; //ssid from wifi (hotspot)
+char pass[] = "meakmeak"; //password of wifi (hotspot)
 
 int pinB1 = 16; // D0 -> IN1
 int pinB2 = 5; //  D1 -> IN2
@@ -115,6 +115,7 @@ void loop() {
 
 void forward(int time)
 {
+  //motors left & right rotate forward
   motorAForward();
   motorBForward();
   delay(time);
@@ -122,6 +123,7 @@ void forward(int time)
 
 void backward(int time)
 {
+  //motors left & right rotate backward
   motorABackward();
   motorBBackward();
   delay(time);
@@ -129,6 +131,9 @@ void backward(int time)
 
 void turnLeft(int time)
 {
+  //motor left rotate forward
+  //motor right rotate backward
+  //(go left)
   motorABackward();
   motorBForward();
   delay(time);
@@ -136,6 +141,9 @@ void turnLeft(int time)
 
 void turnRight(int time)
 {
+  //motor left rotate forward
+  //motor right rotate backward
+  //(go right)
   motorAForward();
   motorBBackward();
   delay(time);
@@ -143,6 +151,8 @@ void turnRight(int time)
 
 void coast(int time)
 {
+  //motor left & right stop slowly
+  //wheels not locked
   motorACoast();
   motorBCoast();
   delay(time);
@@ -150,6 +160,8 @@ void coast(int time)
 
 void brake(int time)
 {
+  //motor left & right stop immediatly
+  //wheels locked
   motorABrake();
   motorBBrake();
   delay(time);
