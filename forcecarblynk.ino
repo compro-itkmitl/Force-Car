@@ -1,16 +1,10 @@
-//to use wifi we need to include esp8266wifi.h
-//to use ultrasonic we need to include newping.h
-//to use blynk application we need to include blynksimpleesp8266.h
 #include <ESP8266WiFi.h>
 #include <NewPing.h>
 #include <BlynkSimpleEsp8266.h>
 
-//to use blynk application we need auth tokens from application
-//and to connect with blynk on mobile we need ssid and password of wifi
-//to connect and control a car from moblie
-char auth[] = "343e76bc3b1642f79cf0732a095cb5e8"; //auth token from email
-char ssid[] = "..."; //ssid from wifi (hotspot)
-char pass[] = "meakmeak"; //password of wifi (hotspot)
+char auth[] = "1f291d98308e4ae29ff935bac3a7f301";
+char ssid[] = "srnds";
+char pass[] = "893474870";
 
 int pinB1 = 16; // D0 -> IN1
 int pinB2 = 5; //  D1 -> IN2
@@ -20,19 +14,15 @@ int pinA2 = 0;  //  D3 -> IN4
 int TRIG_PIN = D6; // D6 -> TRIG
 int ECHO_PIN = D5; // D5 -> ECHO
 
-//to use ultrasonic we must use this instruction to connect with port of ultrasonic
 NewPing sonar(TRIG_PIN, ECHO_PIN);
 
-//variable of distance of ultrasonic signal
 long distance;
 
-//variable to check the car working just fine
 boolean run = true;
+boolean auto_run = false;
 
 void setup() {
   Serial.begin(9600);
-
-  //begin to connect with blynk and internet
   Blynk.begin(auth, ssid, pass);
   
   pinMode(pinA1, OUTPUT);
@@ -45,53 +35,45 @@ void setup() {
 }
 
 BLYNK_WRITE(11) {
-  //by using blynk in button v11
   if (param.asInt()) {
-    //if button pressed, make a car go forward
     forward(1);
   }
 }
 
 BLYNK_WRITE(12) {
-  //by using blynk in button v12
   if (param.asInt()) {
-    //if button pressed, make a car turn right
     turnRight(1);
   }
 }
 
 BLYNK_WRITE(13) {
-  //by using blynk in button v13
   if (param.asInt()) {
-    //if button pressed, make a car go backward
     backward(1);
   }
 }
 
 BLYNK_WRITE(14) {
-  //by using blynk in button v14
   if (param.asInt()) {
-    //if button pressed, make a car turn left
     turnLeft(1);
   }
 }
 
 BLYNK_WRITE(15) {
-  //by using blynk in button v15
   if (param.asInt()) {
-    //if button pressed, make a car stop
     coast(200);
   }
 }
 
 BLYNK_WRITE(16) {
-  //auto mode for a car to ditect object
-  //by using blynk in button v16
-  
+  if (param.asInt()) {
+    auto_run = true;
+  }else{
+    auto_run = false;
+    coast(1);
+  }
 }
 
 void loop() {
-  //this instuction is for checking the car that working just fine or not
   if (run) {
     for (int i = 0; i <= 500; i++) {
       delay(10);
@@ -107,15 +89,25 @@ void loop() {
     run = false;
   }
   Blynk.run();
+
+  if(auto_run){
+    distance = sonar.ping_cm();
+    Serial.println(distance);
+    Serial.print(" cm.\n");
+     if (distance < 15 ) {
+       backward(300);
+       coast(300);
+       turnRight(300);
+       coast(300);
+     }else{
+       forward(1);
+     }
+  }
 }
-
-
-
 
 
 void forward(int time)
 {
-  //motors left & right rotate forward
   motorAForward();
   motorBForward();
   delay(time);
@@ -123,7 +115,6 @@ void forward(int time)
 
 void backward(int time)
 {
-  //motors left & right rotate backward
   motorABackward();
   motorBBackward();
   delay(time);
@@ -131,9 +122,6 @@ void backward(int time)
 
 void turnLeft(int time)
 {
-  //motor left rotate forward
-  //motor right rotate backward
-  //(go left)
   motorABackward();
   motorBForward();
   delay(time);
@@ -141,9 +129,6 @@ void turnLeft(int time)
 
 void turnRight(int time)
 {
-  //motor left rotate forward
-  //motor right rotate backward
-  //(go right)
   motorAForward();
   motorBBackward();
   delay(time);
@@ -151,8 +136,6 @@ void turnRight(int time)
 
 void coast(int time)
 {
-  //motor left & right stop slowly
-  //wheels not locked
   motorACoast();
   motorBCoast();
   delay(time);
@@ -160,8 +143,6 @@ void coast(int time)
 
 void brake(int time)
 {
-  //motor left & right stop immediatly
-  //wheels locked
   motorABrake();
   motorBBrake();
   delay(time);
@@ -172,14 +153,12 @@ void brake(int time)
 
 void motorAForward()
 {
-  //make right motor of wheel rotating to go forword
   digitalWrite(pinA1, HIGH);
   digitalWrite(pinA2, LOW);
 }
 
 void motorABackward()
 {
-  //make right motor of wheel rotating to go backward
   digitalWrite(pinA1, LOW);
   digitalWrite(pinA2, HIGH);
 }
@@ -187,14 +166,12 @@ void motorABackward()
 
 void motorBForward()
 {
-  //make left motor of wheel rotating to go forward
   digitalWrite(pinB1, HIGH);
   digitalWrite(pinB2, LOW);
 }
 
 void motorBBackward()
 {
-  //make left motor of wheel rotating to go backward
   digitalWrite(pinB1, LOW);
   digitalWrite(pinB2, HIGH);
 }
@@ -203,28 +180,24 @@ void motorBBackward()
 
 void motorACoast()
 {
-  //make right motor of wheel rotating to stop slowly
   digitalWrite(pinA1, LOW);
   digitalWrite(pinA2, LOW);
 }
 
 void motorABrake()
 {
-  //make right motor of wheel rotating to stop immediatly
   digitalWrite(pinA1, HIGH);
   digitalWrite(pinA2, HIGH);
 }
 
 void motorBCoast()
 {
-  //make left motor of wheel rotating to stop slowly
   digitalWrite(pinB1, LOW);
   digitalWrite(pinB2, LOW);
 }
 
 void motorBBrake()
 {
-  //make left motor of wheel rotating to stop immediatly
   digitalWrite(pinB1, HIGH);
   digitalWrite(pinB2, HIGH);
 }
