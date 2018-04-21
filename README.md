@@ -3,14 +3,22 @@
 
 ---
 ## อุปกรณ์
+เทส
 
 ---
 
 ## Library
+เทส
+* \#include <ESP8266WiFi.h>
+* \#include <NewPing.h>
+* \#include <BlynkSimpleEsp8266.h>
+* \#include <LiquidCrystal_I2C.h>
+
 
 ---
 
 ## Function
+เทส
 
 ---
 
@@ -19,7 +27,7 @@
 * เมื่อติดตั้งเสร็จให้เข้าแอพ Blynk แล้วเลือก New Project ตั้งค่าเป็น NodeMCU เลือก Wifi
 * ทำการเชื่อมบลาๆๆ เข้าไปเอา auth ใน?
 
-![Alt text](url)
+![Setting](https://avatars.githubusercontent.com/u/11541426?v=3)
 * ตั้งค่าตามรูป
 
 ---
