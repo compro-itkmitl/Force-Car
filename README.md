@@ -53,17 +53,17 @@
   * จากนั้นเลือก New Project และทำการตั้งค่าตามรูปภาพ แล้วกด Create<br>
   ![](/pic/create.jpg)
   * จากนั้นจะได้รับ Auth Token ตาม E-mail ที่ใช้เชื่อมต่อกับแอพ เพื่อนำไปใส่ในโค้ดของเรา
-  * ทำการเพิ่มปุ่มกด Button และตั้งค่า PIN เป็น Virtual และตั้งค่าตามภาพ <br>
+  * ทำการเพิ่มปุ่มกด Button และตั้งค่า PIN เป็น Virtual และตั้งค่าตามภาพดังนี้ <br>
    ![](/pic/setting.jpg)
   * และนี่คือแอพ Blynk ที่พร้อมในการควบคุมรถบังคับ<br>
    ![](/pic/control.jpg)
 
-  * เมื่อทำการติดตั้งเสร็จให้เปิดไฟล์ของเราในโปรแกรม Arduino
+  * เมื่อทำการตั้งค่าเสร็จให้เปิดไฟล์ของเราในโปรแกรม Arduino
   * ในส่วนของสามบรรทัดนี้ ก่อนการอัพโหลดให้ทำการแก้ไขเป็นข้อมูลของผู้ใช้<br>
   ![](/pic/data.png)<br>
-  char auth[] = "auth_token"; ให้เปลี่ยน auth_token เป็น Auth Token ซึ่งจะได้รับใน E-mail ที่ทำการเชื่อมต่อกับแอพ Blynk<br>
-  char ssid[] = "user_wifi"; ให้เปลี่ยน user_wifi เป็น ชื่อ Wifi ของผู้ใช้<br>
-  char pass[] = "password_wifi"; ให้เปลี่ยน password_wifi เป็น รหัส Wifi ของผู้ใช้<br>
+  **char auth[] = "auth_token";** ให้เปลี่ยน auth_token เป็น Auth Token ซึ่งจะได้รับใน E-mail ที่ทำการเชื่อมต่อกับแอพ Blynk<br>
+  **char ssid[] = "user_wifi";** ให้เปลี่ยน user_wifi เป็น ชื่อ Wifi ของผู้ใช้<br>
+  **char pass[] = "password_wifi";** ให้เปลี่ยน password_wifi เป็น รหัส Wifi ของผู้ใช้<br>
   * จากนั้นทำการอัพโหลดโค้ดผ่านสาย Micro USB เข้า NodeMCU ของรถบังคับ \* อย่าลืมคลิก Tools แล้วเลือก Port ของสาย
   * เมื่ออัพโหลดเสร็จ ให้ลองบังคับรถผ่านแอพ Blynk ได้เลย
 
