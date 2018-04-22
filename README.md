@@ -61,10 +61,10 @@
 
   * เมื่อทำการติดตั้งเสร็จให้เปิดไฟล์ของเรา
   * ในส่วนของสามบรรทัดนี้ ก่อนการอัพโหลดให้ทำการแก้ไขเป็นข้อมูลของผู้ใช้<br>
-  * ![](/pic/data.png)
-  * char auth[] = "auth_token"; ให้เปลี่ยน auth_token เป็น Auth Token ซึ่งจะได้รับใน E-mail ที่ทำการเชื่อมต่อกับแอพ Blynk
-  * char ssid[] = "user_wifi"; ให้เปลี่ยน user_wifi เป็น ชื่อ Wifi ของผู้ใช้
-  * char pass[] = "password_wifi"; ให้เปลี่ยน password_wifi เป็น รหัส Wifi ของผู้ใช้
+  ![](/pic/data.png)
+  char auth[] = "auth_token"; ให้เปลี่ยน auth_token เป็น Auth Token ซึ่งจะได้รับใน E-mail ที่ทำการเชื่อมต่อกับแอพ Blynk<br>
+  char ssid[] = "user_wifi"; ให้เปลี่ยน user_wifi เป็น ชื่อ Wifi ของผู้ใช้<br>
+  char pass[] = "password_wifi"; ให้เปลี่ยน password_wifi เป็น รหัส Wifi ของผู้ใช้<br>
   * จากนั้นทำการอัพโหลดโค้ดผ่านสาย Micro USB เข้า NodeMCU ของรถบังคับ \* อย่าลืมคลิก Tools -> Port เลือกพอร์ตของสายเรา
   * เมื่ออัพโหลดเสร็จ ให้ลองบังคับรถผ่านแอพ Blynk ได้เลย
 
