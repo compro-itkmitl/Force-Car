@@ -40,19 +40,33 @@
 ---
 
 # How to use
-* ดาวน์โหลดโปรแกรม Arduino เมื่อเรียบร้อย ให้ติดตั้ง Library ตามข้างบน ดังนี้
-  * กดที่แถบข้างบน Sketch --> Include Library --> Add .ZIP Library...
-  * เมื่อทำการติดตั้งเสร็จให้เปิดไฟล์โค้ดเรา
-  * ในส่วนของสามบรรทัดนี้ให้ทำการเปลี่ยนเป็นของผู้ใช้
-  * char auth[] = "343e76bc3b1642f79cf0732a095cb5e8"; ให้เข้าเว็บแล้วทำการก๊อปของตัวเองมาใส่
-  * char ssid[] = "..."; ใส่ชื่อ Wifi ของผู้ใช้
-  * char pass[] = "meakmeak"; ใส่รหัส Wifi ของผู้ใหญ่
+* ดาวน์โหลดโปรแกรม Arduino เมื่อเรียบร้อย ให้ติดตั้งแพลตฟอร์ม ESP8266
+  * เลือกแถบ File -> Preferences
+  * ไปที่ช่อง Additional Boards Manager URLs: ป้อน URL นี้
+  > http://arduino.esp8266.com/stable/package_esp8266com_index.json แล้ว click OK
+  * เลือกแถบ Tools -> Board: แล้วเลือกที่ Boards Manager...
+  * เลื่อนหา esp8266 by ESP8266 Community จากนั้นกด Install 
+  * เมื่อติดตั้งเสร็จให้เลือก Board : NodeMCU 1.0 (ESP-12E Module)
+* หลังจากนั้นให้ติดตั้ง Library ตามข้างบนให้ครบ ดังนี้
+  * เลือกแถบ Sketch --> Include Library --> Add .ZIP Library...
 * ให้ทำการดาวน์โหลดแอพ Blynk ในโทรศัพท์มือถือ
-* เมื่อติดตั้งเสร็จให้เข้าแอพ Blynk แล้วเลือก New Project ตั้งค่าเป็น NodeMCU เลือก Wifi
-* ทำการเชื่อมบลาๆๆ เข้าไปเอา auth ใน?
+  * เมื่อติดตั้งเสร็จให้เข้าแอพ Blynk แล้วทำการ Log In
+  * จากนั้นเลือก New Project และทำการตั้งค่าตามรูปภาพ แล้วกด Create<br>
+  ![](/pic/create.jpg)
+  * จากนั้นจะได้รับ Auth Token ตาม E-mail ที่ใช้เชื่อมต่อกับแอพ เพื่อนำไปใส่ในโค้ดของเรา
+  * ทำการเพิ่มปุ่มกด Button และตั้งค่า PIN เป็น Virtual และตั้งค่าตามภาพ <br>
+   ![](/pic/setting.jpg)
+  * และนี่คือแอพ Blynk ที่พร้อมในการควบคุมรถบังคับ<br>
+   ![](/pic/control.jpg)
 
-![Setting](https://avatars.githubusercontent.com/u/11541426?v=3)
-* ตั้งค่าตามรูป
+  * เมื่อทำการติดตั้งเสร็จให้เปิดไฟล์ของเรา
+  * ในส่วนของสามบรรทัดนี้ ก่อนการอัพโหลดให้ทำการแก้ไขเป็นข้อมูลของผู้ใช้<br>
+  * ![](/pic/data.png)
+  * char auth[] = "auth_token"; ให้เปลี่ยน auth_token เป็น Auth Token ซึ่งจะได้รับใน E-mail ที่ทำการเชื่อมต่อกับแอพ Blynk
+  * char ssid[] = "user_wifi"; ให้เปลี่ยน user_wifi เป็น ชื่อ Wifi ของผู้ใช้
+  * char pass[] = "password_wifi"; ให้เปลี่ยน password_wifi เป็น รหัส Wifi ของผู้ใช้
+  * จากนั้นทำการอัพโหลดโค้ดผ่านสาย Micro USB เข้า NodeMCU ของรถบังคับ \* อย่าลืมคลิก Tools -> Port เลือกพอร์ตของสายเรา
+  * เมื่ออัพโหลดเสร็จ ให้ลองบังคับรถผ่านแอพ Blynk ได้เลย
 
 ---
 
