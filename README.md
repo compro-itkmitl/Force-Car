@@ -27,10 +27,9 @@
 ---
 
 # Library
-* \#include <ESP8266WiFi.h>
-* \#include <NewPing.h>
-* \#include <BlynkSimpleEsp8266.h>
-
+* \#include <ESP8266WiFi.h> ทำการติดตั้งลงแพลตฟอร์มในโปรแกรม Arduino
+* \#include <NewPing.h> [NewPing](https://bitbucket.org/teckel12/arduino-new-ping/downloads/)
+* \#include <BlynkSimpleEsp8266.h> [Blynk](https://github.com/blynkkk/blynk-library/releases/tag/v0.5.2)
 
 ---
 
@@ -43,7 +42,7 @@
 * ดาวน์โหลดโปรแกรม Arduino เมื่อเรียบร้อย ให้ติดตั้งแพลตฟอร์ม ESP8266
   * เลือกแถบ File -> Preferences
   * ไปที่ช่อง Additional Boards Manager URLs: ป้อน URL นี้
-  > http://arduino.esp8266.com/stable/package_esp8266com_index.json แล้ว click OK
+    http://arduino.esp8266.com/stable/package_esp8266com_index.json แล้ว click OK
   * เลือกแถบ Tools -> Board: แล้วเลือกที่ Boards Manager...
   * เลื่อนหา esp8266 by ESP8266 Community จากนั้นกด Install 
   * เมื่อติดตั้งเสร็จให้เลือก Board : NodeMCU 1.0 (ESP-12E Module)
@@ -59,13 +58,13 @@
   * และนี่คือแอพ Blynk ที่พร้อมในการควบคุมรถบังคับ<br>
    ![](/pic/control.jpg)
 
-  * เมื่อทำการติดตั้งเสร็จให้เปิดไฟล์ของเรา
+  * เมื่อทำการติดตั้งเสร็จให้เปิดไฟล์ของเราในโปรแกรม Arduino
   * ในส่วนของสามบรรทัดนี้ ก่อนการอัพโหลดให้ทำการแก้ไขเป็นข้อมูลของผู้ใช้<br>
-  ![](/pic/data.png)
-  char auth[] = "auth_token"; ให้เปลี่ยน auth_token เป็น Auth Token ซึ่งจะได้รับใน E-mail ที่ทำการเชื่อมต่อกับแอพ Blynk<br>
+  ![](/pic/data.png)<br>
+  char auth[] = "auth_token"; ให้เปลี่ยน auth_token เป็น Auth Token ซึ่งจะได้รับใน E-mail ที่ทำการเชื่อมต่อกับแอพ Blynk<br>
   char ssid[] = "user_wifi"; ให้เปลี่ยน user_wifi เป็น ชื่อ Wifi ของผู้ใช้<br>
   char pass[] = "password_wifi"; ให้เปลี่ยน password_wifi เป็น รหัส Wifi ของผู้ใช้<br>
-  * จากนั้นทำการอัพโหลดโค้ดผ่านสาย Micro USB เข้า NodeMCU ของรถบังคับ \* อย่าลืมคลิก Tools -> Port เลือกพอร์ตของสายเรา
+  * จากนั้นทำการอัพโหลดโค้ดผ่านสาย Micro USB เข้า NodeMCU ของรถบังคับ \* อย่าลืมคลิก Tools แล้วเลือก Port ของสาย
   * เมื่ออัพโหลดเสร็จ ให้ลองบังคับรถผ่านแอพ Blynk ได้เลย
 
 ---
