@@ -14,6 +14,8 @@ int pinA2 = 0;  //  D3 -> IN4
 int TRIG_PIN = D6; // D6 -> TRIG
 int ECHO_PIN = D5; // D5 -> ECHO
 
+int buzzer = D4; // D4 -> BUZZER
+
 NewPing sonar(TRIG_PIN, ECHO_PIN);
 
 long distance;
@@ -32,6 +34,8 @@ void setup() {
 
   pinMode(TRIG_PIN, OUTPUT);
   pinMode(ECHO_PIN, INPUT);
+
+  pinMode(buzzer, OUTPUT);
 }
 
 BLYNK_WRITE(11) {
@@ -108,6 +112,23 @@ void loop() {
 
 void forward(int time)
 {
+  distance = sonar.ping_cm();
+  if (distance > 15 and distance <= 20){
+    for (int i = 0; i <100; i++){
+      digitalWrite (buzzer, HIGH);
+      delay (3);
+      digitalWrite (buzzer, LOW);
+      delay (3);
+    }
+  }
+  if (distance <= 15){
+    for (int i = 0; i <100; i++){
+      digitalWrite (buzzer, HIGH);
+      delay (1);
+      digitalWrite (buzzer, LOW);
+      delay (1);
+    }
+  }
   motorAForward();
   motorBForward();
   delay(time);
@@ -115,6 +136,23 @@ void forward(int time)
 
 void backward(int time)
 {
+  distance = sonar.ping_cm();
+  if (distance > 15 and distance <= 20){
+    for (int i = 0; i <100; i++){
+      digitalWrite (buzzer, HIGH);
+      delay (3);
+      digitalWrite (buzzer, LOW);
+      delay (3);
+    }
+  }
+  if (distance <= 15){
+    for (int i = 0; i <100; i++){
+      digitalWrite (buzzer, HIGH);
+      delay (1);
+      digitalWrite (buzzer, LOW);
+      delay (1);
+    }
+  }
   motorABackward();
   motorBBackward();
   delay(time);
@@ -122,6 +160,23 @@ void backward(int time)
 
 void turnLeft(int time)
 {
+   distance = sonar.ping_cm();
+  if (distance > 15 and distance <= 20){
+    for (int i = 0; i <100; i++){
+      digitalWrite (buzzer, HIGH);
+      delay (3);
+      digitalWrite (buzzer, LOW);
+      delay (3);
+    }
+  }
+  if (distance <= 15){
+    for (int i = 0; i <100; i++){
+      digitalWrite (buzzer, HIGH);
+      delay (1);
+      digitalWrite (buzzer, LOW);
+      delay (1);
+    }
+  }
   motorABackward();
   motorBForward();
   delay(time);
@@ -129,6 +184,23 @@ void turnLeft(int time)
 
 void turnRight(int time)
 {
+  distance = sonar.ping_cm();
+  if (distance > 15 and distance <= 20){
+    for (int i = 0; i <100; i++){
+      digitalWrite (buzzer, HIGH);
+      delay (3);
+      digitalWrite (buzzer, LOW);
+      delay (3);
+    }
+  }
+  if (distance <= 15){
+    for (int i = 0; i <100; i++){
+      digitalWrite (buzzer, HIGH);
+      delay (1);
+      digitalWrite (buzzer, LOW);
+      delay (1);
+    }
+  }
   motorAForward();
   motorBBackward();
   delay(time);
