@@ -5,23 +5,23 @@
 
 # Equipment
 
-* รถ ประกอบด้วย ฐานรถ ล้อรถ 2 ข้าง มอเตอร์ล้อรถ 2 ข้าง ล้อช่วยข้างหน้า สวิตซ์ น็อต มาประกอบกันจนเป็นรถ (เปลี่ยนใช้รางถ่าน 18650)
+* รถ ประกอบด้วย ฐานรถ ล้อรถ 2 ข้าง มอเตอร์ล้อรถ 2 ข้าง ล้อช่วยข้างหน้า สวิตซ์ น็อต มาประกอบกันจนเป็นรถ (เปลี่ยนใช้รางถ่าน 18650)<br>
 ![Car](/pic/car.jpg)
-* รางถ่าน 18650 - 2 ก้อน
-![Rangtan](/pic/tangtan.jpg)
-* ถ่านชาร์จ 18650 Panasonic NCR18650B 3.7v 3400mAh 2 ก้อน
+* รางถ่าน 18650 - 2 ก้อน<br>
+![Rangtan](/pic/rangtan.jpg)
+* ถ่านชาร์จ 18650 Panasonic NCR18650B 3.7v 3400mAh 2 ก้อน<br>
 ![Battery](/pic/bat.jpg)
-* Jumper F2F, Jumper M2M, Jumper F2M
+* Jumper F2F, Jumper M2M, Jumper F2M<br>
 ![Jumper](/pic/jumper.jpg)
-* Motor Driver Module L298N
+* Motor Driver Module L298N<br>
 ![MotorModule](/pic/module.jpg)
-* NodeMCU V3 CH340G Lua WIFI ESP8266 ESP-12E
+* NodeMCU V3 CH340G Lua WIFI ESP8266 ESP-12E<br>
 ![mcu](/pic/nodemcu.jpg)
-* NodeMcu Breadboard for NodeMCU V3
+* NodeMcu Breadboard for NodeMCU V3<br>
 ![bbmcu](/pic/breadboard.jpg)
-* HY-SRF05 SRF05 Ultrasonic Distance Sensor Module
+* HY-SRF05 SRF05 Ultrasonic Distance Sensor Module<br>
 ![Censor](/pic/censor.jpg)
-* Buzzer Module
+* Buzzer Module<br>
 ![Buzzer](/pic/buzzer.jpg)
 
 ---
