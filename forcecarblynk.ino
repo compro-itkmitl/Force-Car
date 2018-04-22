@@ -36,6 +36,18 @@ boolean run = true;
 //variable to make auto mode work
 boolean auto_run = false;
 
+//variable to make a car go forward
+boolean v11 = false;
+
+//variable to make a car go right
+boolean v12 = false;
+
+//variable to make a car go backward
+boolean v13 = false;
+
+//variable to make a car go left  
+boolean v14 = false;
+
 void setup() {
   //begin to connect with blynk and internet
   Blynk.begin(auth, ssid, pass);
@@ -53,42 +65,51 @@ void setup() {
 BLYNK_WRITE(11) {
   //by using blynk in button v11
   if (param.asInt()) {
-    //if button pressed, make a car go forward
-    forward(1);
+    v11 = true;
+    //if button pressed on, begin to go forward
+  }else{
+    v11 = false;
+    coast(1);
+    //if button not pressed, stop
   }
 }
 
 BLYNK_WRITE(12) {
-  //by using blynk in button v12
+  //by using blynk in button v13
   if (param.asInt()) {
-    //if button pressed, make a car turn right
-    turnRight(1);
+    v12 = true;
+    //if button pressed on, begin to go right
+  }else{
+    v12 = false;
+    coast(1);
+    //if button not pressed, stop
   }
 }
 
 BLYNK_WRITE(13) {
   //by using blynk in button v13
   if (param.asInt()) {
-    //if button pressed, make a car go backward
-    backward(1);
+    v13 = true;
+    //if button pressed on, begin to go backward
+  }else{
+    v13 = false;
+    coast(1);
+    //if button not pressed, stop
   }
 }
 
 BLYNK_WRITE(14) {
-  //by using blynk in button v14
+  //by using blynk in button v13
   if (param.asInt()) {
-    //if button pressed, make a car turn left
-    turnLeft(1);
+    v14 = true;
+    //if button pressed on, begin to go left
+  }else{
+    v14 = false;
+    coast(1);
+    //if button not pressed, stop
   }
 }
 
-BLYNK_WRITE(15) {
-  //by using blynk in button v15
-  if (param.asInt()) {
-    //if button pressed, make a car stop
-    coast(200);
-  }
-}
 
 BLYNK_WRITE(16) {
   //auto mode for a car to ditect object
@@ -126,9 +147,9 @@ void loop() {
   //this instuction is for begin the auto mode from blynk function
   if(auto_run){
     //if auto_run from v16 function pressed on begin the instuction
+    tone(buzzer, 40000);
     distance = sonar.ping_cm();
     
-    //display the distance between car and object to lcd
      if (distance < 15 ) {
        //if a car too close with object less than 15 cm
        //turn left
@@ -138,23 +159,80 @@ void loop() {
       forward(1);
     }
   }
+
+  //this instuction is for begin to go forward from blynk function
+  if(v11){
+    //if button from v11 function pressed begin the instuction
+    distance = sonar.ping_cm();
+    forward(1);
+       
+     if (distance > 20 and distance <= 30) {
+       //if a car too close with object less than 15 cm
+       //buzzer will ring slowly
+       tone(buzzer, 40000);
+       delay(2000);
+       noTone(buzzer);
+       delay(2000);
+     }if (distance > 15 and distance <= 20){
+      tone(buzzer, 40000);
+      delay(1000);
+      noTone(buzzer);
+      delay(1000);
+    }if (distance <= 15){
+      tone(buzzer, 40000);
+      delay(100);
+      noTone(buzzer);
+      delay(100);
+    }
+    else{
+      tone(buzzer, 40000);
+      forward(1);
+    }
+  }
+
+  //this instuction is for begin to go right from blynk function
+  if(v12){
+    //if auto_run from v12 function pressed begin the instuction
+    turnRight(300);
+  }
+
+  //this instuction is for begin to go backward from blynk function
+  if(v13){
+    //if button from v11 function pressed begin the instuction
+    distance = sonar.ping_cm();
+    backward(1);
+       
+     if (distance > 20 and distance <= 30) {
+       //if a car too close with object less than 15 cm
+       //buzzer will ring slowly
+       tone(buzzer, 40000);
+       delay(2000);
+       noTone(buzzer);
+       delay(2000);
+     }if (distance > 15 and distance <= 20){
+      tone(buzzer, 40000);
+      delay(1000);
+      noTone(buzzer);
+      delay(1000);
+    }if (distance <= 15){
+      tone(buzzer, 40000);
+      delay(100);
+      noTone(buzzer);
+      delay(100);
+    }
+    else{
+      tone(buzzer, 40000);
+      backward(1);
+    }
+  }
+  
+  //this instuction is for begin to go right from blynk function
+  if(v14){
+    //if auto_run from v12 function pressed begin the instuction
+    turnLeft(300);
+  } 
 }
 
-void voice(int time){
-  //make buzzer ring and silent per time
-  distance = sonar.ping_cm();
-  if (distance < 15 ) {
-    tone(buzzer, 40000);
-    delay(50);
-    noTone(buzzer);
-    delay(50);
-  }else{
-    tone(buzzer, 40000);
-    delay(1000);
-    noTone(buzzer);
-    delay(1000);
-    }
-}
 
 void forward(int time)
 {
@@ -168,7 +246,7 @@ void backward(int time)
 {
   //motors left & right rotate backward
   motorABackward();
-  motorBBackward();  
+  motorBBackward();
   delay(time);
 }
 
@@ -177,6 +255,7 @@ void turnLeft(int time)
   //motor left rotate forward
   //motor right rotate backward
   //(go left)
+  tone(buzzer, 40000);
   motorABackward();
   motorBForward();
   delay(time);
@@ -187,6 +266,7 @@ void turnRight(int time)
   //motor left rotate forward
   //motor right rotate backward
   //(go right)
+  tone(buzzer, 40000);
   motorAForward();
   motorBBackward();
   delay(time);
@@ -196,6 +276,7 @@ void coast(int time)
 {
   //motor left & right stop slowly
   //wheels not locked
+  tone(buzzer, 40000);
   motorACoast();
   motorBCoast();
   delay(time);
