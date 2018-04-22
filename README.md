@@ -4,24 +4,25 @@
 ---
 
 # Equipment
-![Car](https://fa.lnwfile.com/_/fa/_raw/8u/do/6g.jpg)
+
 * รถ ประกอบด้วย ฐานรถ ล้อรถ 2 ข้าง มอเตอร์ล้อรถ 2 ข้าง ล้อช่วยข้างหน้า สวิตซ์ น็อต มาประกอบกันจนเป็นรถ (เปลี่ยนใช้รางถ่าน 18650)
-![Rangtan](https://fa.lnwfile.com/_/fa/_raw/4e/z5/o7.jpg)
+![Car](/pic/car.jpg)
 * รางถ่าน 18650 - 2 ก้อน
-![Battery](https://fa.lnwfile.com/_/fa/_raw/ro/7q/at.jpg)
+![Rangtan](/pic/tangtan.jpg)
 * ถ่านชาร์จ 18650 Panasonic NCR18650B 3.7v 3400mAh 2 ก้อน
-![Jumper](https://fa.lnwfile.com/_/fa/_raw/tl/u8/rw.jpg)
+![Battery](/pic/bat.jpg)
 * Jumper F2F, Jumper M2M, Jumper F2M
-![MotorModule](https://fa.lnwfile.com/_/fa/_raw/ll/8f/cp.jpg)
+![Jumper](/pic/jumper.jpg)
 * Motor Driver Module L298N
-![mcu](https://fa.lnwfile.com/_/fa/_raw/zz/39/ud.jpg)
+![MotorModule](/pic/module.jpg)
 * NodeMCU V3 CH340G Lua WIFI ESP8266 ESP-12E
-![bbmcu](https://fa.lnwfile.com/_/fa/_raw/jw/ne/tz.jpg)
+![mcu](/pic/nodemcu.jpg)
 * NodeMcu Breadboard for NodeMCU V3
-![Censor](https://fa.lnwfile.com/_/fa/_raw/w9/as/7f.jpg)
+![bbmcu](/pic/breadboard.jpg)
 * HY-SRF05 SRF05 Ultrasonic Distance Sensor Module
-![Buzzer](https://o.lnwfile.com/_/o/_raw/9p/ze/vp.jpg)
+![Censor](/pic/censor.jpg)
 * Buzzer Module
+![Buzzer](/pic/buzzer.jpg)
 
 ---
 
