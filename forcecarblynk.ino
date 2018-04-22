@@ -142,10 +142,18 @@ void loop() {
 
 void voice(int time){
   //make buzzer ring and silent per time
-  tone(buzzer, frequency);
-  delay(time);
-  noTone(buzzer);
-  delay(time);
+  distance = sonar.ping_cm();
+  if (distance < 15 ) {
+    tone(buzzer, 40000);
+    delay(50);
+    noTone(buzzer);
+    delay(50);
+  }else{
+    tone(buzzer, 40000);
+    delay(1000);
+    noTone(buzzer);
+    delay(1000);
+    }
 }
 
 void forward(int time)
