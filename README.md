@@ -96,7 +96,7 @@
 
 ---
 
-# ![](/img/Supervisor.png) Assistant Teacher<br>
+# Assistant Teacher<br>
 
 | ผศ. ดร. กิติ์สุชาต พสุภา	| ผศ. ดร. ปานวิทย์ ธุวะนุติ  |
 | :-------------: |:-------------:|
@@ -108,7 +108,7 @@
 ---
 
 
-# ![](/img/member.png) Team Members
+# Team Members
 |  |ชื่อ|นามสกุล|GitHub Username|รหัสนักศึกษา|
 |:-:|--|------|---------------|---------|
 |![](/pic/meak.jpg)| สุภวัช | กลิ่นขจร | [@60070106](https://github.com/60070106) | 60070106 |
