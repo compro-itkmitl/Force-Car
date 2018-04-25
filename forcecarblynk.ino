@@ -8,15 +8,14 @@
 //to use blynk application we need auth tokens from application
 //and to connect with blynk on mobile we need ssid and password of wifi
 //to connect and control a car from moblie
-char auth[] = "343e76bc3b1642f79cf0732a095cb5e8"; //auth token from email
-char ssid[] = "..."; //ssid from wifi (hotspot)
-char pass[] = "meakmeak"; //password of wifi (hotspot)
+char auth[] = "1f291d98308e4ae29ff935bac3a7f301"; //auth token from email
+char ssid[] = "jj"; //ssid from wifi (hotspot)
+char pass[] = "j19102541"; //password of wifi (hotspot)
 
 int pinB1 = 16; // D0 -> IN1
 int pinB2 = 5; //  D1 -> IN2
 int pinA1 = 4; // D2 -> IN3
 int pinA2 = 0;  //  D3 -> IN4
-
 int TRIG_PIN = D6; // D6 -> TRIG
 int ECHO_PIN = D5; // D5 -> ECHO
 
@@ -147,10 +146,9 @@ void loop() {
   //this instuction is for begin the auto mode from blynk function
   if(auto_run){
     //if auto_run from v16 function pressed on begin the instuction
-    tone(buzzer, 40000);
     distance = sonar.ping_cm();
     
-     if (distance < 15 ) {
+     if (distance < 50 ) {
        //if a car too close with object less than 15 cm
        //turn left
        turnLeft(300);
@@ -166,19 +164,19 @@ void loop() {
     distance = sonar.ping_cm();
     forward(1);
        
-     if (distance > 20 and distance <= 30) {
+     if (distance > 100 and distance <= 200) {
        //if a car too close with object less than 15 cm
        //buzzer will ring slowly
        tone(buzzer, 40000);
-       delay(2000);
+       delay(1000);
        noTone(buzzer);
-       delay(2000);
-     }if (distance > 15 and distance <= 20){
+       delay(1000);
+     }if (distance > 50 and distance <= 100){
       tone(buzzer, 40000);
-      delay(1000);
+      delay(500);
       noTone(buzzer);
-      delay(1000);
-    }if (distance <= 15){
+      delay(500);
+    }if (distance <= 50){
       tone(buzzer, 40000);
       delay(100);
       noTone(buzzer);
@@ -202,19 +200,19 @@ void loop() {
     distance = sonar.ping_cm();
     backward(1);
        
-     if (distance > 20 and distance <= 30) {
+     if (distance > 100 and distance <= 200) {
        //if a car too close with object less than 15 cm
        //buzzer will ring slowly
        tone(buzzer, 40000);
-       delay(2000);
+       delay(1000);
        noTone(buzzer);
-       delay(2000);
-     }if (distance > 15 and distance <= 20){
+       delay(1000);
+     }if (distance > 50 and distance <= 100){
       tone(buzzer, 40000);
-      delay(1000);
+      delay(500);
       noTone(buzzer);
-      delay(1000);
-    }if (distance <= 15){
+      delay(500);
+    }if (distance <= 50){
       tone(buzzer, 40000);
       delay(100);
       noTone(buzzer);
@@ -255,7 +253,6 @@ void turnLeft(int time)
   //motor left rotate forward
   //motor right rotate backward
   //(go left)
-  tone(buzzer, 40000);
   motorABackward();
   motorBForward();
   delay(time);
@@ -266,7 +263,6 @@ void turnRight(int time)
   //motor left rotate forward
   //motor right rotate backward
   //(go right)
-  tone(buzzer, 40000);
   motorAForward();
   motorBBackward();
   delay(time);
